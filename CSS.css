@@ -1,0 +1,28 @@
+		body {
+		background-color: #EDF1E3
+		}
+
+	
+		table {
+		alignment:center
+		}
+
+		p.p1 {
+		text-align: center	
+		}
+
+		td.t1 {
+		text-align:center;
+		height= 300;
+		width: 900px ;
+		}
+		
+	
+		div {
+  		background-color: lightgrey;
+  		width: 278px;
+  		border: 1px black;
+  		padding: 30px;
+		}
+
+	

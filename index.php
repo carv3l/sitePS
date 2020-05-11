@@ -1,0 +1,98 @@
+<?php
+
+	/* ------------------------------------------
+	 * Constants used in application
+	 * ------------------------------------------ */
+	require_once ('./includes/constants.php');
+	
+	/* ------------------------------------------------------
+	 * INCLUDE CLASS DEFINITION PRIOR TO INITIALIZING SESSION
+	 * ------------------------------------------------------ */
+	require_once (__ROOT__.'/owasp-esapi-php/src/ESAPI.php');
+	require_once (__ROOT__.'/includes/RemoteFileHandler.php');
+	require_once (__ROOT__.'/includes/RequiredSoftwareHandler.php');
+	
+    /* ------------------------------------------
+     * INITIALIZE SESSION
+     * ------------------------------------------ */
+	//initialize session
+    if (strlen(session_id()) == 0){
+    	session_start();
+    }// end if
+
+	/* ------------------------------------------
+ 	* initialize remote file handler
+ 	* ------------------------------------------ */
+	$RemoteFileHandler = new RemoteFileHandler(__ROOT__.'/owasp-esapi-php/src/', $_SESSION["security-level"]);
+
+	/* ------------------------------------------
+	 * initialize required software handler
+	* ------------------------------------------ */
+	$RequiredSoftwareHandler = new RequiredSoftwareHandler(__ROOT__.'/owasp-esapi-php/src/', $_SESSION["security-level"]);
+	
+
+   	/* ------------------------------------------
+   	 * Set the HTTP content-type of this page
+   	 * ------------------------------------------ */
+   	header("Content-Type: text/html", TRUE);
+   	
+	/* ------------------------------------------
+     * DISPLAY PAGE
+     * ------------------------------------------ */
+
+   	/* ------------------------------------------
+    * "PAGE" VARIABLE INJECTION
+    * ------------------------------------------ */
+   	global $lPage;
+   	$lPage = __ROOT__.'/home.php';
+	switch ($_SESSION["security-level"]){
+   		case "0": // This code is insecure
+   		case "1": // This code is insecure
+		   // Get the value of the "page" URL query parameter
+		    if (isset($_REQUEST["page"])) {
+		    	$lPage = $_REQUEST["page"];
+		    }// end if
+   		break;
+	    		
+   	}// end switch
+	/* ------------------------------------------
+    * END "PAGE" VARIABLE INJECTION
+    * ------------------------------------------ */
+	/* ------------------------------------------
+     * SIMULATE "SECRET" PAGES
+     * ------------------------------------------ */  	
+	/* ------------------------------------------
+	* END SIMULATE "SECRET" PAGES
+	* ------------------------------------------ */
+
+	/* ------------------------------------------
+	* BEGIN OUTPUT RESPONSE
+	* ------------------------------------------ */
+	require_once (__ROOT__."/includes/header.php");
+	
+	if (strlen($lPage)==0 || !isset($lPage)){
+		/* Default Page */
+		require_once(__ROOT__."/home.php");
+	}else{
+		/* All Other Pages */
+
+		/* Note: PHP uses lazy evaluation so if file_exists then PHP wont execute remote_file_exists */
+		if (file_exists($lPage) || $RemoteFileHandler->remoteSiteIsReachable($lPage)){
+			require_once ($lPage);
+		}else{
+			if(!$RemoteFileHandler->curlIsInstalled()){
+				echo $RemoteFileHandler->getNoCurlAdviceBasedOnOperatingSystem();
+			}//end if
+			require_once (__ROOT__."/page-not-found.php");
+		}//end if
+		
+	}// end if page variable not set
+
+	require_once (__ROOT__."/includes/footer.php");
+	
+
+
+
+
+
+?>
