@@ -83,7 +83,7 @@
 		if (file_exists($lPage) || $RemoteFileHandler->remoteSiteIsReachable($lPage)){
 			
 			//require_once (canonicalize_path($lPage,null));
-			require_once (__ROOT__."/includes/ajuda.php");
+			require_once (__ROOT__."/Ajuda.php");
 			//require_once ($lPage);
 		}else{
 			if(!$RemoteFileHandler->curlIsInstalled()){
