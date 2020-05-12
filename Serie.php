@@ -8,17 +8,6 @@
 	</head>
 
 <body >
-
-<table >
-<tr>
-		<td align="center" height="100" WIDTH=500 > <a href="./index.php?page=home.php"><Img src="IMG/PaginaInicial.png"></a></td>
-		<td align="center" height="100" WIDTH=500 > <a href="./index.php?page=Filmes.php"><Img src="IMG/Filmes.png"></a></td>
-		<td align="center" height="100" WIDTH=500 > <a href="./index.php?page=Serie.php"><Img src="IMG/Series.png"></a></td>
-		<td align="center" height="100" WIDTH=500 > <a href="./index.php?page=Animes.php"><Img src="IMG/Animes.png"></a></td>
-		<td align="center" height="100" WIDTH=500 > <a href="./index.php?page=Ajuda.php"><Img src="IMG/Ajuda.png"></a></td>
-	</tr>
-	</td>
-</table>
 <p class="p1"> <Img src="IMG/Serie.png">
 		
 <table <p align="center">
