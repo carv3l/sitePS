@@ -36,7 +36,7 @@
 
 <H1><I><font size=5 Face=Mirage Color="black">Est� com algum problema no meu site? Por favor, informe-me, clicando no link a seguir! Se voc� precisar de alguma dica, n�o hesite em entrar em contato comigo.</font></I></h1>
 
-<A HREF=mailto:"Rafa2003Ribeiro@gmail.com"><Img src="IMG/Help.png"></a>
+<A HREF=mailto:"Rafa2003Ribeiro@gmail.com"><Img src="IMG/help.png"></a>
 		
 		
 </body>
