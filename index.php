@@ -91,7 +91,7 @@
 		
 	}// end if page variable not set
 
-	require_once (__ROOT__."/includes/footer.php");
+	//require_once (__ROOT__."/includes/footer.php");
 	
 
 
