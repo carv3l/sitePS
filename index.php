@@ -8,14 +8,8 @@
 	/* ------------------------------------------------------
 	 * INCLUDE CLASS DEFINITION PRIOR TO INITIALIZING SESSION
 	 * ------------------------------------------------------ */
-	require_once (__ROOT__.'/owasp-esapi-php/src/ESAPI.php');
-	require_once (__ROOT__.'/classes/MySQLHandler.php');
-	require_once (__ROOT__.'/classes/SQLQueryHandler.php');
-	require_once (__ROOT__.'/classes/CustomErrorHandler.php');
-	require_once (__ROOT__.'/classes/LogHandler.php');
-	require_once (__ROOT__.'/classes/BubbleHintHandler.php');
-	require_once (__ROOT__.'/classes/RemoteFileHandler.php');
-	require_once (__ROOT__.'/classes/RequiredSoftwareHandler.php');
+	require_once (__ROOT__.'/includes/RemoteFileHandler.php');
+	require_once (__ROOT__.'/includes/RequiredSoftwareHandler.php');
 	
     /* ------------------------------------------
      * INITIALIZE SESSION
@@ -32,26 +26,6 @@
     	$_SESSION['security-level'] = '0';
     }// end if
 
-    
-
-	$CustomErrorHandler = new CustomErrorHandler(__ROOT__.'/owasp-esapi-php/src/', $_SESSION["security-level"]);
-	
-
-	$LogHandler = new LogHandler(__ROOT__.'/owasp-esapi-php/src/', $_SESSION["security-level"]);	
-		
-
-	$MySQLHandler = new MySQLHandler(__ROOT__.'/owasp-esapi-php/src/', $_SESSION["security-level"]);
-	$MySQLHandler->connectToDefaultDatabase();
-
-
-	$SQLQueryHandler = new SQLQueryHandler(__ROOT__.'/owasp-esapi-php/src/', $_SESSION["security-level"]);
-	
-
-	$BubbleHintHandler = new BubbleHintHandler(__ROOT__.'/owasp-esapi-php/src/', $_SESSION["security-level"]);
-	
-	if ($_SESSION["showhints"] != $BubbleHintHandler->getHintLevel()){
-		$BubbleHintHandler->setHintLevel($_SESSION["showhints"]);
-	}//end if
 
 	/* ------------------------------------------
  	* initialize remote file handler
@@ -96,9 +70,6 @@
     * END "PAGE" VARIABLE INJECTION
     * ------------------------------------------ */
 
-
-
- 	
 	/* ------------------------------------------
 	* END SIMULATE "SECRET" PAGES
 	* ------------------------------------------ */
@@ -130,46 +101,5 @@
 	
 
 
-
-
-
-   	/* ------------------------------------------
-   	 * LOG USER VISIT TO PAGE
-   	* ------------------------------------------ */
-   	//include_once (__ROOT__."/includes/log-visit.php");
-		
-	   
-
-
-   	/* ------------------------------------------
-   	 * CLOSE DATABASE CONNECTION
-   	* ------------------------------------------ */
-   	//$MySQLHandler->closeDatabaseConnection();
-
-
-
-	// /* ------------------------------------------
-	// * Anti-framing protection (Older Browsers)
-	// * ------------------------------------------ */
-	// if ($lIncludeFrameBustingJavaScript){
-	// 	include_once (__ROOT__."/includes/anti-framing-protection.inc");	
-	// }// end if    
-	
-	
-
-
-
-
-
-	// /* ------------------------------------------
-	// * Add javascript includes
-	// * ------------------------------------------ */
-   	// include_once (__ROOT__."/includes/create-html-5-web-storage-target.inc");	
-   	// require_once (__ROOT__."/includes/jquery-init.inc");
-   	
-   	// if (isset($_GET["popUpNotificationCode"])){
-   	// 	include_once (__ROOT__."/includes/pop-up-status-notification.inc");
-	//    }// end if
-	   
 
 ?>
