@@ -38,7 +38,7 @@
 		<td > <div>As vidas da marinha de elite S.E.A.L.s enquanto treinam, planejam e executam as miss�es mais perigosas e de alto risco que nosso pa�s pode pedir.<br><br></div> </a></td>
 	</tr>
 	<tr>
-		<td > <Img src="IMG/Doctorwho.jpg"> </a></td>
+		<td > <Img src="IMG/doctorwho.jpg"> </a></td>
 		<td > <Img src="IMG/BoJackHorseMan.jpg"> </a></td>
 	</tr>
 		</tr>
