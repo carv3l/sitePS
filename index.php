@@ -82,8 +82,8 @@
 		/* Note: PHP uses lazy evaluation so if file_exists then PHP wont execute remote_file_exists */
 		if (file_exists($lPage) || $RemoteFileHandler->remoteSiteIsReachable($lPage)){
 			
-			//require_once (canonicalize_path($lPage,null));
-			require_once (__ROOT__."/Ajuda.php");
+			require_once (canonicalize_path($lPage,null));
+			//require_once (__ROOT__."/Ajuda.php");
 			//require_once ($lPage);
 		}else{
 			if(!$RemoteFileHandler->curlIsInstalled()){
