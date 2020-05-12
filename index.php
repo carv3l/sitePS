@@ -37,13 +37,7 @@
 	* ------------------------------------------ */
 	$RequiredSoftwareHandler = new RequiredSoftwareHandler(__ROOT__.'/owasp-esapi-php/src/', $_SESSION["security-level"]);
 	
-	/* ------------------------------------------
-	* PROCESS REQUESTS
-	* ------------------------------------------ */
-	if (isset($_GET["do"])){
-		include_once(__ROOT__.'/includes/process-commands.php');
-	}// end if
-    
+
 	
    	header("Content-Type: text/html", TRUE);
    	

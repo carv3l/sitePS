@@ -10,7 +10,7 @@
 <body >
 <p class="p1"> <Img src="IMG/Serie.png">
 		
-<table <p align="center">
+<table align="center">
 	<tr>
 		<td > <Img src="IMG/BreakingBad.jpg"></a></td>
 		<td > <Img src="IMG/GameofThrones.jpg"></a></td>

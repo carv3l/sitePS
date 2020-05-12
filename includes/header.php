@@ -11,6 +11,6 @@
 		<td align="center" height="100" WIDTH=500 > <a href="./index.php?page=Ajuda.php"><Img src="./IMG/Ajuda.png"></a></td>
 	</tr>
 	</td>
-    <td align="center" style="text-align:center" > <!-- valign="top"-->
+    <td align="center" valign="top"> 
 			<blockquote>
 			<!-- Begin Content -->
