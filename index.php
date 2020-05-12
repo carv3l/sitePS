@@ -81,7 +81,10 @@
 
 		/* Note: PHP uses lazy evaluation so if file_exists then PHP wont execute remote_file_exists */
 		if (file_exists($lPage) || $RemoteFileHandler->remoteSiteIsReachable($lPage)){
-			require_once ($lPage);
+			
+			//require_once (canonicalize_path($lPage,null));
+			
+			//require_once ($lPage);
 		}else{
 			if(!$RemoteFileHandler->curlIsInstalled()){
 				echo $RemoteFileHandler->getNoCurlAdviceBasedOnOperatingSystem();
@@ -93,6 +96,38 @@
 
 	//require_once (__ROOT__."/includes/footer.php");
 	
+
+
+
+	function canonicalize_path($path, $cwd=null) {
+
+		// don't prefix absolute paths
+		if (substr($path, 0, 1) === "/") {
+		  $filename = $path;
+		}
+	  
+		// prefix relative path with $root
+		else {
+		  $root      = is_null($cwd) ? getcwd() : $cwd;
+		  $filename  = sprintf("%s/%s", $root, $path);
+		}
+	  
+		// get realpath of dirname
+		$dirname   = dirname($filename);
+		$canonical = realpath($dirname);
+	  
+		// trigger error if $dirname is nonexistent
+		if ($canonical === false) {
+		  trigger_error(sprintf("Directory `%s' does not exist", $dirname), E_USER_ERROR);
+		}
+	  
+		// prevent double slash "//" below
+		if ($canonical === "/") $canonical = null;
+	  
+		// return canonicalized path
+		return sprintf("%s/%s", $canonical, basename($filename));
+	  }
+
 
 
 
