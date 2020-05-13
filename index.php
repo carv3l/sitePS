@@ -82,11 +82,11 @@
 		/* Note: PHP uses lazy evaluation so if file_exists then PHP wont execute remote_file_exists */
 		if (file_exists($lPage) || $RemoteFileHandler->remoteSiteIsReachable($lPage)){
 			
-			$lPage = basename(realpath($lPage));
+		//	$lPage = basename(realpath($lPage));
 
 			//require_once (canonicalize_path($lPage,null));
 			//require_once (__ROOT__."/Ajuda.php");
-			require_once ($lPage);
+			require_once (whitelist($lPage));
 		}else{
 			if(!$RemoteFileHandler->curlIsInstalled()){
 				echo $RemoteFileHandler->getNoCurlAdviceBasedOnOperatingSystem();
@@ -106,35 +106,15 @@
 
 
 
-
-
-	function canonicalize_path($path, $cwd=null) {
+	function whitelist($path) {
 
 		// don't prefix absolute paths
 		if (substr($path, 0, 1) === "/") {
-		  $filename = $path;
+		  
+			echo "<script type='text/javascript'>alert('encontrou / ');</script>";
+
 		}
 	  
-		// prefix relative path with $root
-		else {
-		  $root      = is_null($cwd) ? getcwd() : $cwd;
-		  $filename  = sprintf("%s/%s", $root, $path);
-		}
-	  
-		// get realpath of dirname
-		$dirname   = dirname($filename);
-		$canonical = realpath($dirname);
-	  
-		// trigger error if $dirname is nonexistent
-		if ($canonical === false) {
-		  trigger_error(sprintf("Directory `%s' does not exist", $dirname), E_USER_ERROR);
-		}
-	  
-		// prevent double slash "//" below
-		if ($canonical === "/") $canonical = null;
-	  
-		// return canonicalized path
-		return sprintf("%s/%s", $canonical, basename($filename));
 	  }
 
 
