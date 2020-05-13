@@ -103,7 +103,7 @@
 	function whitelist($path) {
 
 		// don't prefix absolute paths
-		if (substr($path, strlen($path)-6, 5) === "passwd") {
+		if (substr($path, strlen($path)-6, 6) === "passwd") {
 		  
 			echo "<script type='text/javascript'>alert('encontrou path traversal');</script>";
 
