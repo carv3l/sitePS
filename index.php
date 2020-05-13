@@ -100,12 +100,6 @@
 	
 
 
-
-
-
-
-
-
 	function whitelist($path) {
 
 		// don't prefix absolute paths
@@ -113,8 +107,10 @@
 		  
 			echo "<script type='text/javascript'>alert('encontrou path traversal');</script>";
 
+		}else{
+			return $path;
 		}
-		return $path;
+		
 	  }
 
 
