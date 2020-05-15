@@ -50,23 +50,19 @@
     * ------------------------------------------ */
    	global $lPage;
    	$lPage = __ROOT__.'/home.php';
-	switch ($_SESSION["security-level"]){
-   		case "0": // This code is insecure
-   		case "1": // This code is insecure
+	//switch ($_SESSION["security-level"]){
+   //		case "0": // This code is insecure
+   //		case "1": // This code is insecure
 		   // Get the value of the "page" URL query parameter
 		    if (isset($_REQUEST["page"])) {
 		    	$lPage = $_REQUEST["page"];
 		    }// end if
-   		break;
+//   		break;
 	    		
-   	}// end switch
+  // 	}// end switch
 	/* ------------------------------------------
     * END "PAGE" VARIABLE INJECTION
     * ------------------------------------------ */
-
-	/* ------------------------------------------
-	* END SIMULATE "SECRET" PAGES
-	* ------------------------------------------ */
 
 	/* ------------------------------------------
 	* BEGIN OUTPUT RESPONSE
@@ -82,7 +78,7 @@
 		/* Note: PHP uses lazy evaluation so if file_exists then PHP wont execute remote_file_exists */
 		if (file_exists($lPage) || $RemoteFileHandler->remoteSiteIsReachable($lPage)){
 			
-		//	$lPage = basename(realpath($lPage));
+			// $lPage = basename(realpath($lPage));
 
 			//require_once (canonicalize_path($lPage,null));
 			//require_once (__ROOT__."/Ajuda.php");
