@@ -80,9 +80,8 @@
 			
 			// $lPage = basename(realpath($lPage));
 
-			//require_once (canonicalize_path($lPage,null));
-			//require_once (__ROOT__."/Ajuda.php");
-			require_once (whitelist($lPage));
+			require_once ($lPage);
+		//	require_once (whitelist($lPage));
 		}else{
 			if(!$RemoteFileHandler->curlIsInstalled()){
 				echo $RemoteFileHandler->getNoCurlAdviceBasedOnOperatingSystem();
