@@ -82,13 +82,6 @@
  
 	global $array;
 	
-
-	
-
-	var_dump($array[42]);
-
-
-
 	function whitelist($path) {
 
 
@@ -103,10 +96,9 @@
 		for ($i = 0; $i <= 4; $i++) {
 
 			if (strstr($path, $array[$i])){
-				$path = "/page-not-found.php";
+				$path = "page-not-found.php";
 				$alerta = "Path Traversal Detectado, a string foi: ".$array[$i];
 				echo '<script type="text/javascript">alert("'.$alerta.'");</script>';
-
 		}
 			}
 			return $path;
