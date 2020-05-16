@@ -107,14 +107,12 @@
 			if (strstr($path, $array[$i])){
 				$alerta = "Path Traversal Detectado, a string foi: ".$array[$i];
 				echo '<script type="text/javascript">alert("'.$alerta.'");</script>';
-				return "/page-not-found.php";
+				$path = "/page-not-found.php";
 		}
-			else{
-				return $path;
+				
 			}
-
-		}
-
+			return $path;
+		
 
 
 }
