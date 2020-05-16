@@ -1,5 +1,6 @@
 <?php
-
+	// $lPage = basename(realpath($lPage)); 
+	// 	require_once ($lPage);
 	/* ------------------------------------------
 	 * Constants used in application
 	 * ------------------------------------------ */
@@ -40,64 +41,42 @@
 
 	
    	header("Content-Type: text/html", TRUE);
-   	
-	/* ------------------------------------------
-     * DISPLAY PAGE
-     * ------------------------------------------ */
 
-   	/* ------------------------------------------
-    * "PAGE" VARIABLE INJECTION
-    * ------------------------------------------ */
+   	//Definir o url com a váriavel de página , assim aparece "?page=home.php"
    	global $lPage;
    	$lPage = __ROOT__.'/home.php';
-	//switch ($_SESSION["security-level"]){
-   //		case "0": // This code is insecure
-   //		case "1": // This code is insecure
-		   // Get the value of the "page" URL query parameter
-		    if (isset($_REQUEST["page"])) {
-		    	$lPage = $_REQUEST["page"];
-		    }// end if
-//   		break;
-	    		
-  // 	}// end switch
-	/* ------------------------------------------
-    * END "PAGE" VARIABLE INJECTION
-    * ------------------------------------------ */
 
-	/* ------------------------------------------
-	* BEGIN OUTPUT RESPONSE
-	* ------------------------------------------ */
+	if (isset($_REQUEST["page"])) {
+		$lPage = $_REQUEST["page"];
+		}
+	    		
+
+
+	//Mostrar o cabeçalho
 	require_once (__ROOT__."/includes/header.php");
 	
+	//Pagina de default do website
 	if (strlen($lPage)==0 || !isset($lPage)){
-		/* Default Page */
 		require_once(__ROOT__."/home.php");
 	}else{
-		/* All Other Pages */
+		/* Todas as outras páginas */
 
-		/* Note: PHP uses lazy evaluation so if file_exists then PHP wont execute remote_file_exists */
+		/* Nota:O PHP usa avaliação lenta portanto se file_exists então o php não executa remote_file_exists */
 		if (file_exists($lPage) || $RemoteFileHandler->remoteSiteIsReachable($lPage)){
 			
-			// $lPage = basename(realpath($lPage));
+			require_once (whitelist($lPage));
 
-			require_once ($lPage);
-		//	require_once (whitelist($lPage));
-		}else{
+		}else{ //Caso a pagina não exista
 			if(!$RemoteFileHandler->curlIsInstalled()){
 				echo $RemoteFileHandler->getNoCurlAdviceBasedOnOperatingSystem();
-			}//end if
+			}
 			require_once (__ROOT__."/page-not-found.php");
-		}//end if
+		}
 		
-	}// end if page variable not set
+	}
 
-	//require_once (__ROOT__."/includes/footer.php");
-	
-
-
+//Função para "estudar o url"
 	function whitelist($path) {
-
-		// don't prefix absolute paths
 		if (substr($path, strlen($path)-6, 6) === "passwd") {
 		  
 			echo "<script type='text/javascript'>alert('encontrou path traversal');</script>";
