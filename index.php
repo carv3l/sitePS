@@ -103,7 +103,7 @@
 		for ($i = 0; $i <= 4; $i++) {
 			if (strstr($path, $array[$i], false)){
 				$alerta = "Path Traversal Detectado, a string foi: "+$array[$i];
-				echo "<script type='text/javascript'>alert(".$alerta.");</script>";
+				echo "<script type='text/javascript'>alert("($alerta)");</script>";
 			break;
 			}
 			else{
