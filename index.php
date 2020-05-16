@@ -42,7 +42,7 @@
 	
    	header("Content-Type: text/html", TRUE);
 
-   	//Definir o url com a váriavel de página , assim aparece "?page=home.php"
+   	//Definir o url com a váriavel de página , assim aparece "?page=home.php" isto é o que faz ser vulneravel ao path traversal
    	global $lPage;
 	   $lPage = __ROOT__.'/home.php';
 	   
@@ -50,7 +50,7 @@
 	//  if (isset($_REQUEST["page"])) {
 	//  	$lPage = $_REQUEST["page"];
 	//  	}
-	    		
+
 
 
 	//Mostrar o cabeçalho
