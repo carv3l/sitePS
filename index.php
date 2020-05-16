@@ -44,11 +44,12 @@
 
    	//Definir o url com a váriavel de página , assim aparece "?page=home.php"
    	global $lPage;
-   	$lPage = __ROOT__.'/home.php';
+	   $lPage = __ROOT__.'/home.php';
+	   
 
-	if (isset($_REQUEST["page"])) {
-		$lPage = $_REQUEST["page"];
-		}
+	// if (isset($_REQUEST["page"])) {
+	// 	$lPage = $_REQUEST["page"];
+	// 	}
 	    		
 
 
