@@ -104,16 +104,16 @@
 
 
 
-			echo '<script type="text/javascript">alert("'.$array[$i].'");</script>';
+			//echo '<script type="text/javascript">alert("'.$array[$i].'");</script>';
 
-			if (strstr($path, $array[$i]) !== null){
+			if (strstr($path, $array[$i])){
 				$alerta = "Path Traversal Detectado, a string foi: ".$array[$i];
 				echo '<script type="text/javascript">alert("'.$alerta.'");</script>';
 			}
 			else{
 				return $path;
 			}
-			
+
 		}
 
 
