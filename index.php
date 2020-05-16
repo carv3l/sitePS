@@ -67,7 +67,7 @@
 			
 			//require_once (whitelist($lPage));
 
-			 $lPage = basename(realpath($lPage)); 
+		//	 $lPage = basename(realpath($lPage)); 
 			 require_once ($lPage);
 
 		}else{ //Caso a pagina não exista
