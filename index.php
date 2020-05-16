@@ -79,20 +79,52 @@
 		
 	}
 
-//Função para "estudar o url"
+ 
+	global $array;
+	
+
+	
+
+	var_dump($array[42]);
+
+
+
 	function whitelist($path) {
+
+
+		$array = array(
+			0 => "passwd",
+			1 => "..",
+			2 => "\/..\/",
+			3 => "%2",
+			4 => "/%"
+		);
+
+		for ($i = 0; $i <= 4; $i++) {
+			if (strstr($path, $array[$i], false)){
+				echo "<script type='text/javascript'>alert('encontrou path traversal');</script>";
+			}else{
+
+				return $path;
+			}
+			
+		}
+
+
+
+}
+
+//Função para "estudar o url"
+
+	function whitelista($path) {
 		if (substr($path, strlen($path)-6, 6) === "passwd") {
 		  
 			echo "<script type='text/javascript'>alert('encontrou path traversal');</script>";
-
 		}else{
 
 			return $path;
 		}
 		
 	  }
-
-
-
 
 ?>
