@@ -100,6 +100,9 @@
 			12 => "..%255c",
 			13 => "%00");
 
+			$alerta = count($array)-1;
+			echo '<script type="text/javascript">alert("'.$alerta.'");</script>';
+
 		for ($i = 0; $i <= count($array)-1; $i++) {
 
 			if (strstr($path, $array[$i])){
