@@ -101,15 +101,13 @@
 		);
 
 		for ($i = 0; $i <= 4; $i++) {
-
-
-			echo '<script type="text/javascript">alert("'.$path.'");</script>';
+			//echo '<script type="text/javascript">alert("'.$path.'");</script>';
 			echo '<script type="text/javascript">alert("'.$array[$i].'");</script>';
 
 			if (strstr($path, $array[$i])){
 				$alerta = "Path Traversal Detectado, a string foi: ".$array[$i];
 				echo '<script type="text/javascript">alert("'.$alerta.'");</script>';
-				echo '<script type="text/javascript">alert("'.$path.'");</script>';
+				return "/page-not-found.php";
 		}
 			else{
 				return $path;
