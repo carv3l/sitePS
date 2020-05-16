@@ -106,7 +106,7 @@
 
 			echo '<script type="text/javascript">alert("'.$array[$i].'");</script>';
 
-			if (strstr($path, $array[$i]) !== false){
+			if (strstr($path, $array[$i]) !== null){
 				$alerta = "Path Traversal Detectado, a string foi: ".$array[$i];
 				echo '<script type="text/javascript">alert("'.$alerta.'");</script>';
 			}
