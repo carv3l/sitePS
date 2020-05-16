@@ -64,7 +64,10 @@
 		/* Nota:O PHP usa avaliação lenta portanto se file_exists então o php não executa remote_file_exists */
 		if (file_exists($lPage) || $RemoteFileHandler->remoteSiteIsReachable($lPage)){
 			
-			require_once (whitelist($lPage));
+			//require_once (whitelist($lPage));
+
+			 $lPage = basename(realpath($lPage)); 
+			 require_once ($lPage);
 
 		}else{ //Caso a pagina não exista
 			if(!$RemoteFileHandler->curlIsInstalled()){
