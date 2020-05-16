@@ -47,9 +47,9 @@
 	   $lPage = __ROOT__.'/home.php';
 	   
 
-	// if (isset($_REQUEST["page"])) {
-	// 	$lPage = $_REQUEST["page"];
-	// 	}
+	 if (isset($_REQUEST["page"])) {
+	 	$lPage = $_REQUEST["page"];
+	 	}
 	    		
 
 
