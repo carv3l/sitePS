@@ -103,8 +103,9 @@
 		for ($i = 0; $i <= 4; $i++) {
 			if (strstr($path, $array[$i], false)){
 				echo "<script type='text/javascript'>alert('encontrou path traversal');</script>";
-			}else{
-
+			break;
+			}
+			else{
 				return $path;
 			}
 			
