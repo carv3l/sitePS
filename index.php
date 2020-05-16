@@ -81,19 +81,26 @@
 
  
 	global $array;
-	
-	function whitelist($path) {
 
+	function whitelist($path) {
 
 		$array = array(
 			0 => "..",
 			1 => "passwd",
 			2 => "\/..\/",
 			3 => "%2",
-			4 => "/%"
-		);
+			4 => "/%",
+			5 => "%2e",
+			6 => "%2e%2f",
+			7 => "..%2f",
+			8 => "%2e%2e%5c",
+			9 => "%2e%2e\\",
+			10 => "..%5c",
+			11 => "%252e%252e%255c",
+			12 => "..%255c",
+			13 => "%00");
 
-		for ($i = 0; $i <= 4; $i++) {
+		for ($i = 0; $i <= count($array)-1; $i++) {
 
 			if (strstr($path, $array[$i])){
 				$path = "page-not-found.php";
